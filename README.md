@@ -1,6 +1,6 @@
 # Validador de Expresiones Booleanas con CFG
 
-Validador léxico-sintáctico de expresiones booleanas. Escribís una expresión, el backend la tokeniza, la valida contra una CFG con precedencia `NOT > AND > OR`, y te devuelve la derivación + árbol sintáctico.
+Validador léxico-sintáctico de expresiones booleanas. Escribes una expresión, el backend la tokeniza, la valida contra una CFG con precedencia `NOT > AND > OR`, y te devuelve la derivación + árbol sintáctico.
 
 ## Stack
 
@@ -13,11 +13,15 @@ Validador léxico-sintáctico de expresiones booleanas. Escribís una expresión
 ## Gramática
 
 ```
-Exp      → Term ExpPrima
-ExpPrima → | Term ExpPrima | ε
-Term     → Factor TermPrima
-TermPrima → & Factor TermPrima | ε
-Factor   → ~ Factor | ! Factor | ( Exp ) | id
+Exp    → Exp | Term | Term
+Term   → Term & Factor | Factor
+Factor → ~ Factor | ! Factor | ( Exp ) | id
+
+La gramática define la precedencia de operadores booleanos mediante su estructura jerárquica:
+
+NOT > AND > OR
+
+El análisis sintáctico utiliza derivación hacia la izquierda para generar la secuencia de producción y construir el árbol sintáctico correspondiente.
 ```
 
 No ambigua. Cada operador en su nivel: `NOT` > `AND` > `OR`.
