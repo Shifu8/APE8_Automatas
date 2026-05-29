@@ -4,7 +4,6 @@
 import { useState } from "react";
 import Header from "./components/Header.jsx";
 import ExpressionForm from "./components/ExpressionForm.jsx";
-import ResultCard from "./components/ResultCard.jsx";
 import TokenTable from "./components/TokenTable.jsx";
 import DerivationView from "./components/DerivationView.jsx";
 import TreeView from "./components/TreeView.jsx";
@@ -51,12 +50,29 @@ function App() {
     setError("");
   };
 
+  const resultKey = loading
+    ? "loading"
+    : result
+      ? `${result.valid}-${result.message}-${result.tokens?.length || 0}`
+      : "empty";
+
   return (
     <div className="app-shell">
       <Header />
 
       <main className="app-main">
-        <section className="top-grid" aria-label="Formulario y resultado">
+        <div className="main-content">
+          <section className="results-row" aria-label="Derivación y tokens">
+            <DerivationView tree={result?.tree || null} />
+            <TokenTable tokens={result?.tokens || []} />
+          </section>
+
+          <section className="bottom-row" aria-label="Árbol sintáctico">
+            <TreeView tree={result?.tree || null} />
+          </section>
+        </div>
+
+        <aside className="sidebar" aria-label="Entrada de expresión">
           <ExpressionForm
             expression={expression}
             loading={loading}
@@ -65,15 +81,17 @@ function App() {
             onExampleClick={handleExampleClick}
             onValidate={handleValidate}
           />
-
-          <ResultCard error={error} loading={loading} result={result} />
-        </section>
-
-        <section className="analysis-grid" aria-label="Análisis de expresión">
-          <TokenTable tokens={result?.tokens || []} />
-          <DerivationView derivation={result?.derivation || []} />
-          <TreeView tree={result?.tree || null} />
-        </section>
+          {result && (
+            <div key={resultKey} className={`result-bar ${result.valid ? "valid" : "invalid"}`}>
+              <span className="result-bar-icon">{result.valid ? "✓" : "✗"}</span>
+              <span className="result-bar-text">
+                {result.valid ? "Expresión válida" : "Expresión inválida"}
+              </span>
+              <span className="result-bar-msg">{result.message}</span>
+              {error && <span className="result-bar-error">{error}</span>}
+            </div>
+          )}
+        </aside>
       </main>
     </div>
   );

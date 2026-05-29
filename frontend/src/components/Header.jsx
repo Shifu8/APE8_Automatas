@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="header-content">
         <h1>Validador de Expresiones Booleanas con CFG</h1>
-        <p>Analizador léxico y sintáctico con precedencia NOT, AND y OR</p>
+        <p>Analizador léxico y sintáctico para expresiones booleanas con precedencia NOT, AND y OR</p>
       </div>
     </header>
   );
