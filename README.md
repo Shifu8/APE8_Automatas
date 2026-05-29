@@ -10,6 +10,18 @@ Validador léxico-sintáctico de expresiones booleanas. Escribes una expresión,
 | Backend | Python + Flask |
 | Analizador | Lexer propio + Parser CFG descendente |
 
+## Arquitectura del Sistema
+
+El proyecto fue desarrollado siguiendo una arquitectura Cliente-Servidor, con el objetivo de separar la interfaz de usuario de la lógica de procesamiento léxico y sintáctico.
+
+Cliente
+
+Implementado en React, permite al usuario ingresar expresiones booleanas y visualizar los resultados del análisis, incluyendo los tokens identificados, la derivación hacia la izquierda y el árbol sintáctico generado.
+
+Servidor
+
+Implementado en Python con Flask, se encarga de recibir las expresiones enviadas por el cliente, ejecutar el análisis léxico para la generación de tokens y realizar la validación sintáctica utilizando la Gramática Libre de Contexto (CFG) definida para el proyecto.
+
 ## Gramática
 
 ```
