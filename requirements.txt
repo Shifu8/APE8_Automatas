@@ -1,0 +1,5 @@
+# Autor: Brandon
+# Descripcion: Dependencias Python del proyecto cfg-boolean-validator.
+
+Flask>=3.0.0,<4.0.0
+flask-cors>=4.0.0,<5.0.0

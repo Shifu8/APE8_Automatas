@@ -1,0 +1,19 @@
+# Autor: Brandon
+# Descripción: Archivos y carpetas que no deben subirse al repositorio del proyecto.
+
+node_modules/
+dist/
+build/
+.env
+.env.local
+**pycache**/
+__pycache__/
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
+.qodo/
+/package-lock.json
