@@ -26,8 +26,7 @@ No ambigua. Cada operador en su nivel: `NOT` > `AND` > `OR`.
 
 | Lexema | Token |
 |--------|-------|
-| `a1`, `x`, `variable1` | VARIABLE |
-| `true`, `false` | BOOLEAN |
+| `a1`, `x`, `variable1`, `true`, `false` | VARIABLE |
 | `!` / `~` | NOT |
 | `&` | AND |
 | `\|` | OR |
