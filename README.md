@@ -58,7 +58,6 @@ npm install
 npm run dev
 ```
 
-Mandale un POST a `http://127.0.0.1:5000/api/validate` con `{ "expression": "a1 | a2 & a3" }` y te responde con validación, tokens, derivación y árbol.
 
 ## Autores
 
