@@ -6,7 +6,7 @@ Validador léxico-sintáctico de expresiones booleanas. Escribís una expresión
 
 | Capa | Tecnología |
 |------|-----------|
-| Frontend | React + Vite |
+| Frontend | React  |
 | Backend | Python + Flask |
 | Analizador | Lexer propio + Parser CFG descendente |
 
