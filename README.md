@@ -1,7 +1,7 @@
 <!-- Autor: Brandon -->
 <!-- Descripción: Guía principal del proyecto cfg-boolean-validator con arquitectura, instalación y uso. -->
 
-# cfg-boolean-validator
+# Validador de Expresiones Booleanas
 
 Sistema Cliente-Servidor para validar expresiones lógicas booleanas usando una Gramática Libre de Contexto (CFG). El proyecto incluye backend en Python con Flask y frontend en React con Vite.
 
